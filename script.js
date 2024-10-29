@@ -65,7 +65,7 @@ function fadeIn() {
 
     // 캐릭터 이미지 추가
     characterElement = document.createElement('img');
-    characterElement.src = `${selectedCharacter}.gif`; // 선택한 캐릭터의 PNG 사용
+    characterElement.src = `${selectedCharacter}.GIF`; // 선택한 캐릭터의 PNG 사용
     characterElement.style.position = 'absolute';
     characterElement.style.left = '50px';
     characterElement.style.bottom = '100px';
@@ -76,7 +76,7 @@ function fadeIn() {
 
     // 아이템 생성
     const itemElement = document.createElement('img');
-    itemElement.src = 'item1.gif'; // 아이템 이미지 추가 (PNG 형식)
+    itemElement.src = 'item1.GIF'; // 아이템 이미지 추가 (PNG 형식)
     itemElement.style.position = 'absolute';
     itemElement.style.bottom = '100px';
     itemElement.style.left = 'calc(50% - 50px)'; // 가운데 위치
@@ -106,7 +106,7 @@ function fadeIn() {
         ) {
             hasItem = true; // 아이템을 얻었음을 표시
             container.removeChild(itemElement); // 아이템 제거
-            characterElement.src = `${selectedCharacter}-${currentDirection}-item.gif`; // 아이템을 가진 캐릭터 이미지로 변경
+            characterElement.src = `${selectedCharacter}-${currentDirection}-item.GIF`; // 아이템을 가진 캐릭터 이미지로 변경
             itemSound.play();
             displayItemMessage(); // 아이템 메시지 표시
             clearInterval(checkItemCollision); // 충돌 체크 중지
@@ -137,7 +137,7 @@ function fadeIn() {
 // 몬스터 생성 함수
 function createMonster() {
     monsterElement = document.createElement('img');
-    monsterElement.src = 'monster.gif'; // 몬스터 이미지 추가 (PNG 형식)
+    monsterElement.src = 'monster.GIF'; // 몬스터 이미지 추가 (PNG 형식)
     monsterElement.style.position = 'absolute';
     monsterElement.style.bottom = '100px';
     monsterElement.style.right = '50px'; // 바닥에 위치
@@ -326,7 +326,7 @@ function displayItemMessage() {
     itemMessageBox.style.border = '5px solidwhite'; 
     itemMessageBox.innerHTML = `
         피로회복제를 얻었다! <br>
-        <img src="item1.gif" alt="아이템" style="width: 50px; height: auto;"> <br>
+        <img src="item1.GIF" alt="아이템" style="width: 50px; height: auto;"> <br>
         피로도 -100 체력 +100
     `;
     container.appendChild(itemMessageBox);
@@ -354,14 +354,14 @@ function moveCharacter(event) {
 
     if (event.key === 'ArrowLeft') {
         currentDirection = 'left';
-        characterElement.src = hasItem ? `${selectedCharacter}-left-item.gif` : `${selectedCharacter}-left.gif`; // 왼쪽 이동 GIF
+        characterElement.src = hasItem ? `${selectedCharacter}-left-item.GIF` : `${selectedCharacter}-left.GIF`; // 왼쪽 이동 GIF
         characterElement.style.left = `${Math.max(0, leftPosition - speed)}px`; // 왼쪽으로 이동 (0 이하로 가지 않도록 제한)
         if (!walkingSound.isPlaying) {
             walkingSound.play(); // 걷는 소리 재생
         }
     } else if (event.key === 'ArrowRight') {
         currentDirection = 'right';
-        characterElement.src = hasItem ? `${selectedCharacter}-right-item.gif` : `${selectedCharacter}-right.gif`; // 오른쪽 이동 GIF
+        characterElement.src = hasItem ? `${selectedCharacter}-right-item.GIF` : `${selectedCharacter}-right.GIF`; // 오른쪽 이동 GIF
         characterElement.style.left = `${Math.min(maxPosition, leftPosition + speed)}px`; // 오른쪽으로 이동
         if (!walkingSound.isPlaying) {
             walkingSound.play(); // 걷는 소리 재생
@@ -371,9 +371,9 @@ function moveCharacter(event) {
 function stopCharacter() {
     // 방향키를 놓으면 현재 방향의 정지 상태 PNG를 유지
     if (currentDirection === 'left') {
-        characterElement.src = hasItem ? `${selectedCharacter}-left-item-stop.gif` : `${selectedCharacter}-left-stop.gif`; // 왼쪽 정지 상태 PNG
+        characterElement.src = hasItem ? `${selectedCharacter}-left-item-stop.GIF` : `${selectedCharacter}-left-stop.GIF`; // 왼쪽 정지 상태 PNG
     } else if (currentDirection === 'right') {
-        characterElement.src = hasItem ? `${selectedCharacter}-right-item-stop.gif` : `${selectedCharacter}-right-stop.gif`; // 오른쪽 정지 상태 PNG
+        characterElement.src = hasItem ? `${selectedCharacter}-right-item-stop.GIF` : `${selectedCharacter}-right-stop.GIF`; // 오른쪽 정지 상태 PNG
     }
     walkingSound.pause(); // 걷는 소리 정지
     walkingSound.currentTime = 0; // 소리 재생 위치를 처음으로 되돌리기
